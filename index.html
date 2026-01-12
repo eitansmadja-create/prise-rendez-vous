@@ -2,287 +2,55 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <title>Formulaire de contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prise de rendez-vous</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: #ffffff;
             padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 40px 30px;
-            max-width: 450px;
-            width: 100%;
-        }
-
-        .logo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .logo h1 {
-            color: #128C7E;
-            font-size: 26px;
-            margin-bottom: 8px;
-        }
-
-        .logo p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-            font-size: 15px;
-        }
-
-        .required {
-            color: #e74c3c;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #25D366;
-            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
-        }
-
-        input::placeholder {
-            color: #999;
-        }
-
-        .date-time-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        button {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: black;
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 17px;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 10px;
         }
-
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 15px;
-            display: none;
-            text-align: center;
-        }
-
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 2px solid #c3e6cb;
-        }
-
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 2px solid #f5c6cb;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            .logo h1 {
-                font-size: 22px;
-            }
-
-            .date-time-group {
-                grid-template-columns: 1fr;
-            }
+            opacity: 0.85;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <h1>📅 Prise de rendez-vous</h1>
-            <p>Remplissez vos informations</p>
-        </div>
 
-        <form id="dataForm">
-            <div class="form-group">
-                <label for="email">Email <span class="required">*</span></label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    placeholder="exemple@email.com" 
-                    required
-                >
-            </div>
+<form action="https://ialearning.app.n8n.cloud/webhook-test/bf405637-09dd-431c-8a21-c65a778a2f24" method="POST">
+    <h2>Formulaire de contact</h2>
 
-            <div class="form-group">
-                <label for="nom">Nom complet <span class="required">*</span></label>
-                <input 
-                    type="text" 
-                    id="nom" 
-                    placeholder="Jean Dupont" 
-                    required
-                >
-            </div>
+    <input type="text" name="nom" placeholder="Nom" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="adresse" placeholder="Adresse">
+    <input type="tel" name="telephone" placeholder="Numéro de téléphone" required>
 
-            <div class="form-group">
-                <label for="adresse">Adresse <span class="required">*</span></label>
-                <input 
-                    type="text" 
-                    id="adresse" 
-                    placeholder="123 Rue de la Paix, 75001 Paris" 
-                    required
-                >
-            </div>
+    <button type="submit">Envoyer</button>
+</form>
 
-            <div class="form-group">
-                <label for="telephone">Numéro de téléphone <span class="required">*</span></label>
-                <input 
-                    type="tel" 
-                    id="telephone" 
-                    placeholder="+33 6 12 34 56 78" 
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label>Date et heure du rendez-vous <span class="required">*</span></label>
-                <div class="date-time-group">
-                    <input 
-                        type="date" 
-                        id="dateRdv" 
-                        required
-                    >
-                    <input 
-                        type="time" 
-                        id="heureRdv" 
-                        required
-                    >
-                </div>
-            </div>
-
-            <button type="submit" id="submitBtn">
-                ✓ Confirmer mon rendez-vous
-            </button>
-        </form>
-
-        <div id="responseMessage" class="message"></div>
-    </div>
-
-    <script>
-        // URL webhook n8n (cachée de l'utilisateur)
-        const WEBHOOK_URL = 'https://ialearning.app.n8n.cloud/webhook-test/bf405637-09dd-431c-8a21-c65a778a2f24';
-
-        const form = document.getElementById('dataForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const responseMessage = document.getElementById('responseMessage');
-
-        // Définir la date minimum à aujourd'hui
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('dateRdv').setAttribute('min', today);
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const formData = {
-                email: document.getElementById('email').value,
-                nom: document.getElementById('nom').value,
-                adresse: document.getElementById('adresse').value,
-                telephone: document.getElementById('telephone').value,
-                dateRdv: document.getElementById('dateRdv').value,
-                heureRdv: document.getElementById('heureRdv').value,
-                timestamp: new Date().toISOString(),
-                source: 'whatsapp_form'
-            };
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = '⏳ Envoi en cours...';
-            responseMessage.style.display = 'none';
-
-            try {
-                const response = await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                if (response.ok) {
-                    responseMessage.className = 'message success';
-                    responseMessage.textContent = '✅ Merci ! Votre rendez-vous a été enregistré avec succès.';
-                    responseMessage.style.display = 'block';
-                    
-                    // Réinitialiser le formulaire
-                    form.reset();
-                } else {
-                    throw new Error('Erreur serveur');
-                }
-            } catch (error) {
-                responseMessage.className = 'message error';
-                responseMessage.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
-                responseMessage.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = '✓ Confirmer mon rendez-vous';
-            }
-        });
-    </script>
 </body>
 </html>
